@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="app.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script> <script type="text/javascript">
+
+google.load("feeds", "1");
+var categories = [];
+function initialize() {
+var feed = new google.feeds.Feed('http://www.rendip.com/rss');
+feed.setResultFormat(google.feeds.Feed.MIXED_FORMAT);
+feed.setNumEntries(7);
+feed.load(function(result) {
+if (!result.error) {
+for (var i = 0; i < result.feed.entries.length; i++) {
+var entry = result.feed.entries[i];
+			categories.push(entry.categories[0]);
+			console.log('Title: ' + i + ' ' + entry.title);
+			console.log('Category: ' + i + ' ' + categories[i]);
+
+var mediaEntries = entry.xmlNode.getElementsByTagNameNS('*','thumbnail');
+for (var j = 0; j < mediaEntries.length; j++) {
+var mediaEntry = mediaEntries[j];
+var mediaThumbnailUrl = mediaEntry.attributes.getNamedItem('url').value
+console.log(mediaThumbnailUrl); }
+} }
+}); }
+google.setOnLoadCallback(initialize);
+</script>
+
+	 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<button type="button" onclick="showView('homeView')">home</button>
+<button type="button" onclick="showView('listView')">list</button>
+<button type="button" onclick="showView('detailView')">detail</button>
+
+<!-- homeView -->
+<div id="homeView" class="views" style="display:none">
+	<button type="button" onclick="removeContent('homeView')">home</button>
+</div>
+
+<!-- listView -->
+<div id="listView" class="views" style="display:none">
+<p>list view</p>
+</div>
+
+<!-- detailView -->
+<div id="detailView" class="views" style="display:none">
+	<button type="button" onclick="generateDetail();">generate</button>
+	<button type="button" onclick="removeContent('detailView')">remove</button>	
+<div id="imageDiv"></div>
+<div id="categoryDiv"></div>
+<div id="titleDiv"></div>
+<div id="descriptionDiv"></div>
+<div id="authorDiv"></div>
+<div id="dateDiv"></div>
+</div>	
+
+
+</body>
+</html>
