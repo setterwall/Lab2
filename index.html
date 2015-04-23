@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>News reader</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="mobile-web-app-capable" content = "yes"/>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="lab1desktop.css"></head>
+	<link rel="icon" href="pic/icon.png" />
+	<script src="app.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+   <script type="text/javascript">
+      google.load("feeds", "1");
+   </script>
+</head>
+<body>
+
+<!--VIEWS-->
+<!--<button type="button" onclick="showView('homeView')">home</button>-->
+<!--<button type="button" onclick="showView('listView')">list</button>-->
+<!--<button type="button" onclick="showView('detailView')">detail</button>-->
+
+<!-- homeView -->
+<div id="feed"></div>
+
+<div class="container">
+<div id="homeView" class="views" style="display:block">
+ 
+    <h1>News reader</h1>
+    <h3>Select a category</h3> 
+        <div class="row">
+          <div class="col-sm-3">
+            <img class="img-responsive" class = " img-rounded"src="pic/music.jpeg" alt="Chania" width="460" height="345" onclick = listCategory("music")> 
+             <p id = "category">Music</p>
+          </div>
+          <div class="col-sm-3">
+            <img class="img-responsive" class = " img-rounded"src="pic/buisness.jpeg" alt="Chania" width="460" height="345" onclick = listCategory("business")> 
+             <p>Business</p>
+          </div>
+      </div>
+      <div class = "row">
+          <div class="col-sm-3">
+            <img class="img-responsive" class = " img-rounded"src="pic/food.jpeg" alt="Chania" width="460" height="345" onclick = listCategory("food")>  
+            <p>Food</p>   
+          </div>
+          <div class="col-sm-3">
+            <img class="img-responsive" class = " img-rounded"src="pic/technology.jpeg" alt="Chania" width="460" height="345" onclick = listCategory("technology")> 
+             <p>Technology</p>
+          </div>
+      </div>
+       <div class = "row">
+          <div class="col-sm-3">
+            <img class="img-responsive" class = " img-rounded"src="pic/science.jpeg" alt="Chania" width="460" height="345" onclick = listCategory("science")>  
+            <p>Science</p>   
+          </div>
+          <div class="col-sm-3">
+            <img class="img-responsive" class = " img-rounded"src="pic/animals.jpeg" alt="Chania" width="460" height="345" onclick = listCategory("animals")> 
+             <p>Animals</p>
+          </div>
+      </div>
+      <div class = "row">
+          <div class="col-sm-3">
+            <img class="img-responsive" class = " img-rounded"src="pic/politics.jpeg" alt="Chania" width="460" height="345" onclick = listCategory("politics")>  
+            <p>Politics</p>   
+          </div>
+          <div class="col-sm-3">
+            <img class="img-responsive" class = " img-rounded"src="pic/history.jpeg" alt="Chania" width="460" height="345" onclick = listCategory("history")> 
+             <p>History</p>
+          </div>
+      </div>
+</div>
+
+<!-- listView -->
+<div id="listView" class="views" style="display:none">
+  <div class="col-sm-6">
+	<div id = "headerMenu">
+  <div id = "categoryTitle"></div>
+  <button type="button" id = "backButton" class="btn btn-warning" onclick = showView("homeView")>Go back</button>
+	</div>
+  <table class="table table-hover">        
+    <thead>
+      <tr class = "danger">
+        <th>Title</th>
+        <th id = "date">Publish date</th>
+      </tr>
+    </thead>
+    <tbody>    <!--list the news here-->
+    </tbody>
+  </table>
+   </div>
+</div>
+
+<!-- detailView -->
+<div id="detailView" class="views" style="display:none">
+   <div class="col-sm-6">
+   <div id = "categoryDetail"></div>
+   <button type="button" id = "backButton" class="btn btn-warning" onclick = showView("homeView")>Go back</button>
+	 <br>
+   <div id="dateDiv"></div>
+   <br>
+   <div id="titleDiv"></div>
+	<br>
+   <div id="imageDiv"></div>
+   <div id="linkDiv"></div>
+   </div>
+</div>	
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+p {
+    font-weight: bold;
+    text-align: center;
+}
+
+#date{
+   text-align: right;
+   padding-right: 5%;
+}
+
+#backButton {
+   margin-bottom: 2%;
+   float: right;
+	 display:inline;
+}
+
+.h3{
+	width: 50%;
+	float:left;
+}
+ 
+#headerCategory{
+		color: #FF9933;
+}
+
